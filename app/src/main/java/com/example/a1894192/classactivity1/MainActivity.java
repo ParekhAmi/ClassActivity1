@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     String tag;
     EditText Name,Password,Email;
-    Button Submit,Clear;
+    Button Submit,Close;
     ConstraintLayout layout;
 
     @Override
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         Email = findViewById(R.id.Email);
 
         Submit = findViewById(R.id.Submit);
-        Clear = findViewById(R.id.Clear);
+        Close = findViewById(R.id.Close);
 
         Submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -39,8 +39,20 @@ public class MainActivity extends AppCompatActivity {
                 Log.i(tag, Email.toString());
 
                 Toast.makeText(getApplicationContext(), "Registration Successfull", Toast.LENGTH_SHORT).show();
-                Snackbar snackbar = Snackbar.make(layout,text: "")
+                Snackbar snackbar = Snackbar.make(layout,"Clear", Toast.LENGTH_SHORT).setAction("cleared", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
 
+                    }
+                });
+                snackbar.show();
+            }
+        });
+
+        Close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
                 }
